@@ -381,8 +381,10 @@ function updateValue(el) {
     }),
         conformedValue = _conformToMask.conformedValue;
 
-    el.value = conformedValue;
-    triggerInputUpdate(el);
+    if (conformedValue !== value) {
+      el.value = conformedValue;
+      triggerInputUpdate(el);
+    }
   }
 
   options.partiallyUpdate(el, {

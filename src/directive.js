@@ -32,8 +32,11 @@ function updateValue(el, force = false) {
 
   if (force || isUpdateNeeded) {
     const { conformedValue } = conformToMask(value, mask, { guide: false });
-    el.value = conformedValue;
-    triggerInputUpdate(el);
+
+    if (conformedValue !== value) {
+      el.value = conformedValue;
+      triggerInputUpdate(el);
+    }
   }
 
   options.partiallyUpdate(el, { previousValue: value });
