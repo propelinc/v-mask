@@ -354,13 +354,7 @@ function createOptions() {
 var options = createOptions();
 
 function triggerInputUpdate(el) {
-  var fn = trigger.bind(null, el, 'input');
-
-  if (isAndroid && isChrome) {
-    setTimeout(fn, 0);
-  } else {
-    fn();
-  }
+  trigger.bind(null, el, 'input')();
 }
 
 function updateValue(el) {
