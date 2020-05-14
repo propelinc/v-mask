@@ -9,12 +9,7 @@ import createOptions from './createOptions';
 const options = createOptions();
 
 function triggerInputUpdate(el) {
-  const fn = trigger.bind(null, el, 'input');
-  if (isAndroid && isChrome) {
-    setTimeout(fn, 0);
-  } else {
-    fn();
-  }
+  trigger.bind(null, el, 'input')();
 }
 
 /**
